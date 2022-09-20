@@ -1,12 +1,12 @@
 package com.crud.SoyMillonario.controller;
 
 
-import com.crud.SoyMillonario.model.Pokemon;
+import com.crud.SoyMillonario.entiti.Pokemon;
 import com.crud.SoyMillonario.service.PokemonService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 public class PokemonController {
@@ -14,10 +14,18 @@ public class PokemonController {
     @Autowired
     PokemonService pokemonService;
 
+    @GetMapping("/pokemon")
+    private List<Pokemon> verLosPokrmones(){
+        return pokemonService.mostrarPokemones();
+    }
+
     @PostMapping("/pokemon")
-    private void crearPokemon(@RequestBody Pokemon pokemon){
+    private void enviarPokemon(@RequestBody Pokemon pokemon){
 
         pokemonService.crearPokemon(pokemon);
-
+    }
+    @DeleteMapping("/pokemon/{id}")
+    private void borrarPokemon(@PathVariable("id")Long id){
+        pokemonService.borrarPokemon(id);
     }
 }

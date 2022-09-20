@@ -1,6 +1,7 @@
-package com.crud.SoyMillonario.model;
+package com.crud.SoyMillonario.entiti;
 
 
+import com.crud.SoyMillonario.enums.Enum_Tipo;
 import lombok.*;
 
 import javax.persistence.*;
@@ -25,6 +26,14 @@ public class Pokemon {
     private int vida;
 
     private int ataque;
+
+    private int edad;
+
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "tipo")
+    private Enum_Tipo tipo;
+
 
 
 }
