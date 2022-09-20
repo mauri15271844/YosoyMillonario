@@ -5,6 +5,9 @@ import com.crud.SoyMillonario.repository.PokemonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 public class PokemonService {
 
@@ -17,8 +20,12 @@ public class PokemonService {
 
     }
 
-    public void verPokemon(){
+    public List<Pokemon> verPokemon(){
 
+        List<Pokemon> pokemons = new ArrayList<Pokemon>();
+        pokemons.addAll(pokemonRepository.findAll());
+
+        return pokemons;
     }
 
     public void eliminarPokemon(){
