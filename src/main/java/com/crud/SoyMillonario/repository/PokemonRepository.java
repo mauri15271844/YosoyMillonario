@@ -1,8 +1,11 @@
 package com.crud.SoyMillonario.repository;
 
+import com.crud.SoyMillonario.model.Pokemon;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface PokemonRepository extends JpaRepository {
+@Repository
+public interface PokemonRepository extends JpaRepository<Pokemon, Long> {
 
 
 }
