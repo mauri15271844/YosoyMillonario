@@ -34,6 +34,10 @@ public class Pokemon {
     @Column(name = "tipo")
     private Enum_Tipo tipo;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "entrenador_id")
+    private Entrenador entrenador;
+
 
 
 }
